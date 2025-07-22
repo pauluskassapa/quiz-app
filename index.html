@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="fungsi.js" defer></script>
+    <title>Quiz App Interaktif</title>
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="start-screen">
+            <h1 class="quiz-title">🧠 Quiz Challenge</h1>
+            <h2>Selamat Datang!</h2>
+            <p>Uji pengetahuan Anda dengan kuis interaktif ini. Terdapat 10 pertanyaan yang akan menguji wawasan umum Anda.</p>
+            <button class="btn btn-primary" onclick="startQuiz()">Mulai Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" style="display: none;">
+            <div class="quiz-header">
+                <h1 class="quiz-title">🧠 Quiz Challenge</h1>
+                <div class="quiz-info">
+                    <span class="question-counter" id="questionCounter">Pertanyaan 1 dari 10</span>
+                    <span class="score" id="score">Skor: 0</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+
+            <div class="question-container fade-in">
+                <div class="question" id="question">Pertanyaan akan muncul di sini</div>
+                <div class="options" id="options"></div>
+                <div>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Pertanyaan Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="result-container">
+            <h1 class="quiz-title">🎉 Quiz Selesai!</h1>
+            <div class="result-score" id="finalScore">0/10</div>
+            <div class="result-message" id="resultMessage">Pesan hasil akan muncul di sini</div>
+            <div class="result-details">
+                <p><strong>Jawaban Benar:</strong> <span id="correctAnswers">0</span></p>
+                <p><strong>Jawaban Salah:</strong> <span id="wrongAnswers">0</span></p>
+                <p><strong>Persentase:</strong> <span id="percentage">0%</span></p>
+            </div>
+            <div>
+                <button class="btn btn-primary" onclick="restartQuiz()">Main Lagi</button>
+                <button class="btn btn-secondary" onclick="showReview()">Review Jawaban</button>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="reviewScreen" style="display: none;">
+            <h1 class="quiz-title">📝 Review Jawaban</h1>
+            <div id="reviewContent"></div>
+            <button class="btn btn-primary" onclick="backToResult()">Kembali ke Hasil</button>
+        </div>
+    </div>
